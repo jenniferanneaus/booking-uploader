@@ -1,0 +1,91 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #222;
+  color: white;
+  padding: 20px 0;
+}
+
+.App-header > div {
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.App-error-text {
+  color: red;
+  font-size: 1.125rem;
+}
+
+.App-add-booking-title{
+  font-size: 1.125rem;
+  width: 80vw;
+}
+
+.App-main{
+  text-align: left;
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.App-booking-date {
+  position: relative;
+  display: inline;
+  margin: 0;
+}
+
+.App-booking-container {
+  position: relative;
+}
+
+.App-booking-container:before {
+  content: "";
+  height: 100%;
+  position: absolute;
+  left: -1.1em;
+  border-left: solid 3px #a0a0a0;
+}
+
+.App-booking-date-title{
+  position: relative;
+  margin-top: 2em;
+}
+
+.App-booking-date-title:before{
+  content: "";
+  padding: 0.5rem;
+  border-radius: 1em;
+  position: absolute;
+  left: -1.5em;
+  border: 3px solid #a0a0a0;
+  background: #c0c0c0;
+}
+
+.App-booking {
+  display: inline-block;
+  position: relative;
+  padding: 0.5em 1em;
+  margin: 0.5em;
+  background: #f1f6f8;
+  border: 2px solid #cee8f1;
+  border-radius: 10px;
+}
+
+.App-booking-error {
+  background: #f7ebeb;
+  border: 2px solid #f3cbcb;
+}
+
+.App-booking-time {
+ font-weight: 700;
+}
+
