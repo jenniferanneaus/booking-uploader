@@ -90,6 +90,7 @@ app.post('/bookings', (req, res) => {
       })
       if(!hasOverlaps)
       {
+        // No overlaps were found, add the bookings and write to file
         let nextBookings = oldBookings.concat(allowedBookings)
         nextBookings.sort(sortFunction);
         fs.writeFile(path, JSON.stringify(nextBookings), (error) => {
@@ -100,12 +101,13 @@ app.post('/bookings', (req, res) => {
         })
         bookings = nextBookings.map((bookingRecord) => ({
           time: Date.parse(bookingRecord.time),
-          duration: bookingRecord.duration * 60 * 1000, // mins into ms
+          duration: bookingRecord.duration * 60 * 1000,
           userId: bookingRecord.user_id,
         }))
         res.sendStatus(200)
       }
       else{
+        // Send an error back to client
         res.sendStatus(409)
       }
     }

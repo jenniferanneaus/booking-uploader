@@ -19,14 +19,11 @@ Existing functionality:
 
 Note: This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-## Additional required features
+## Assumptions
 
-What needs to be added / changed:
-- The app needs to read and parse the provided `.csv` file when submitted via the file input (dropzone). 
-- The app needs to identify new bookings parsed from this file that overlap with existing bookings. 
-- The app needs to visualise the existing bookings in a timeline instead of a list (i.e. as segments that are positioned based on their start time and have a width based on their duration). 
-- The app needs to show a similar timeline for the new bookings parsed from the file that shows which new bookings overlap with existing bookings (perhaps colour these bookings differently). 
-- The app needs to make a `POST` request (`/bookings`) to the server to add the new bookings that don't overlap with existing bookings and refetch the list of bookings from the server. 
-- The server needs to allow this `POST` request (`/bookings`) from app and update the booking list it has in memory (and therefore the list it returns for the existing `GET` request). There is no need to modify the server to use an actual database instead of storing the data in memory. 
+Assumes that the given `.csv` file contains valid entries, and that it either:
 
-Feel free to change any of the existing code (and add any dependencies) to achieve the required specifications / functionality. There is no need to support old browsers, assume a recent version of Firefox/Chrome. If you're having trouble starting or need help with any part, please send us an email and we'll give you a pointer.
++ Has first line with entries `time`, `duration` and `userId` in any order, indicating the order in which the properties appear in each entry, or
++ Has each entry in the order `time`, `duration`, `userId`.
+
+Assumes that the existing entries are in chronological order. When adding new entries, the code ensures they are placed in chronological order.

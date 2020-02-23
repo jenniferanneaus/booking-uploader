@@ -13,7 +13,6 @@ class App extends Component {
     this.state = {bookings:[], addedBookings:[], failedBookings:[]}
     this.onDrop = this.onDrop.bind(this)
   }
-  //state = {}
 
   componentWillMount() {
     fetch(`${apiUrl}/bookings`)
@@ -44,7 +43,8 @@ class App extends Component {
         if (timeInd === -1 || durationInd === -1 || userInd === -1)
         {
           // this data didn't have a header row with time, duration, userId.
-          // assume 'standard' order of time, duration, userId
+          // assume 'standard' order of time, duration, userId, and
+          // assume the first line is a valid entry
           timeInd = 0;
           durationInd = 1;
           userInd = 2;
@@ -71,6 +71,7 @@ class App extends Component {
       let oldBookings = this.state.bookings;
       let allowedBookings;
 
+      // sort by start time, or duration if start time is the same
       function sortFunction(a, b) {
         let x = a.time; let y = b.time;
         if (x < y)
@@ -138,8 +139,6 @@ class App extends Component {
           this.setState(
             { addedBookings: newBookings }
             )
-            
-          console.log('state', this.state)
         }
         else
         {
